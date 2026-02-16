@@ -1,4 +1,4 @@
-** sch_path: /home/iappiah/tt_projects/tt_project2/practicals/AND_IC_TopLevel.sch
+** sch_path: /home/iappiah/tt_project2_practicals/xschem/AND_IC_TopLevel.sch
 .subckt AND_IC_TopLevel 1A 1B 1Y 2A 2B 2Y GND 3A 3B 3Y 4A 4B 4Y VCC
 *.PININFO 1A:I GND:B 1Y:O 1B:I 2A:I 2B:I 3A:I 3B:I 4A:I 4B:I 2Y:O 3Y:O 4Y:O VCC:B
 x1 1A 1B 1Y VCC GND 7804_AND_IC
@@ -33,8 +33,8 @@ D25 GND VCC sky130_fd_pr__diode_pw2nd_05v5 area=100e12 pj=400e6
 .ends
 
 * expanding   symbol:  7804_AND_IC.sym # of pins=5
-** sym_path: /home/iappiah/tt_projects/tt_project2/practicals/7804_AND_IC.sym
-** sch_path: /home/iappiah/tt_projects/tt_project2/practicals/7804_AND_IC.sch
+** sym_path: /home/iappiah/tt_project2_practicals/xschem/7804_AND_IC.sym
+** sch_path: /home/iappiah/tt_project2_practicals/xschem/7804_AND_IC.sch
 .subckt 7804_AND_IC A B Y VCC GND
 *.PININFO A:I Y:O B:I VCC:B GND:B
 XM2 net1 A VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 m=1
