@@ -1,5 +1,5 @@
-** sch_path: /home/iappiah/tt_projects/tt_project2/practicals/7408IC_final_testbench.sch
-**.subckt 7408IC_final_testbench 1A GND 1Y 1B 2A 2B 3A 3B 4A 4B 2Y 3Y 4Y VCC
+** sch_path: /home/iappiah/tt_project2_practicals/xschem/ic_7408_testbench.sch
+**.subckt ic_7408_testbench 1A GND 1Y 1B 2A 2B 3A 3B 4A 4B 2Y 3Y 4Y VCC
 *.ipin 1A
 *.iopin GND
 *.opin 1Y
@@ -14,7 +14,6 @@
 *.opin 3Y
 *.opin 4Y
 *.iopin VCC
-x1 1A 1B out_1y_before 2A 2B out_2y_before GND 3A 3B 3Y 4A 4B 4Y VCC AND_IC_TopLevel
 V1 VCC GND 1.8
 V2 1A GND pulse(0 1.8 1u 1n 1n 2u 4u)
 V3 1B GND pulse(0 1.8 1u 1n 1n 2u 4u)
@@ -28,6 +27,16 @@ R1 out_1y_before 1Y 1k m=1
 C1 1Y GND 10p m=1
 R2 out_2y_before 2Y 1k m=1
 C2 2Y GND 10p m=1
+x1 1A 1B out_1y_before 2A 2B out_2y_before GND 3A 3B 3Y 4A 4B 4Y net1 AND_IC_TopLevel
+Vmeas VCC net1 0
+.save i(vmeas)
+R3 out_1y_before1 1Y_parax 1k m=1
+C3 1Y_parax GND 10p m=1
+R4 out_2y_before2 2Y_parax 1k m=1
+C4 2Y_parax GND 10p m=1
+x2 1A 1B out_1y_before1 2A 2B out_2y_before2 GND 3A 3B 3Y 4A 4B 4Y net2 AND_IC_TopLevel_parax
+Vmeas1 VCC net2 0
+.save i(vmeas1)
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -52,8 +61,8 @@ write 7408IC_final_testbench.raw
 **.ends
 
 * expanding   symbol:  AND_IC_TopLevel.sym # of pins=14
-** sym_path: /home/iappiah/tt_projects/tt_project2/practicals/AND_IC_TopLevel.sym
-** sch_path: /home/iappiah/tt_projects/tt_project2/practicals/AND_IC_TopLevel.sch
+** sym_path: /home/iappiah/tt_project2_practicals/xschem/AND_IC_TopLevel.sym
+** sch_path: /home/iappiah/tt_project2_practicals/xschem/AND_IC_TopLevel.sch
 .subckt AND_IC_TopLevel 1A 1B 1Y 2A 2B 2Y GND 3A 3B 3Y 4A 4B 4Y VCC
 *.ipin 1A
 *.iopin GND
@@ -69,42 +78,21 @@ write 7408IC_final_testbench.raw
 *.opin 3Y
 *.opin 4Y
 *.iopin VCC
-x1 1A 1B 1Y VCC GND 7804_AND_IC
-x2 2A 2B 2Y VCC GND 7804_AND_IC
-x3 3A 3B 3Y VCC GND 7804_AND_IC
-x4 4A 4B 4Y VCC GND 7804_AND_IC
-D1 1A VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D2 GND 1A sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D3 1B VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D4 GND 1B sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D5 1Y VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D6 GND 1Y sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D7 2Y VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D8 GND 2Y sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D9 2A VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D10 GND 2A sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D11 2B VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D12 GND 2B sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D13 4B VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D14 GND 4B sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D15 4A VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D16 GND 4A sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D17 3A VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D18 GND 3A sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D19 3B VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D20 GND 3B sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D21 4Y VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D22 GND 4Y sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D23 3Y VCC sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D24 GND 3Y sky130_fd_pr__diode_pw2nd_05v5 area=1e12 pj=4e6
-D25 GND VCC sky130_fd_pr__diode_pw2nd_05v5 area=100e12 pj=400e6
+x1 1A 1B 1Y VCC GND ic_7804_AND
+x2 2A 2B 2Y VCC GND ic_7804_AND
+x3 3A 3B 3Y VCC GND ic_7804_AND
+x4 4A 4B 4Y VCC GND ic_7804_AND
 .ends
 
 
-* expanding   symbol:  7804_AND_IC.sym # of pins=5
-** sym_path: /home/iappiah/tt_projects/tt_project2/practicals/7804_AND_IC.sym
-** sch_path: /home/iappiah/tt_projects/tt_project2/practicals/7804_AND_IC.sch
-.subckt 7804_AND_IC A B Y VCC GND
+* expanding   symbol:  AND_IC_TopLevel_parax.sym # of pins=14
+** sym_path: /home/iappiah/tt_project2_practicals/xschem/AND_IC_TopLevel.sym
+.include /home/iappiah/tt_project2_practicals/mag/AND_IC_TopLevel.sim.spice
+
+* expanding   symbol:  ic_7804_AND.sym # of pins=5
+** sym_path: /home/iappiah/tt_project2_practicals/xschem/ic_7804_AND.sym
+** sch_path: /home/iappiah/tt_project2_practicals/xschem/ic_7804_AND.sch
+.subckt ic_7804_AND A B Y VCC GND
 *.ipin A
 *.opin Y
 *.ipin B
@@ -116,7 +104,7 @@ XM3 net1 B VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM5 Y net1 VCC VCC sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM1 net1 A net2 net2 sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+XM1 net1 A net2 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM4 net2 B GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1

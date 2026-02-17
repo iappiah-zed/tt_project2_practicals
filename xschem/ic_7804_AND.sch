@@ -39,15 +39,11 @@ N 920 -830 920 -790 {
 lab=#net1}
 N 800 -790 800 -730 {
 lab=#net1}
-N 800 -700 800 -670 {
-lab=#net2}
 N 800 -670 800 -570 {
 lab=#net2}
 N 580 -860 640 -860 {
 lab=A}
 N 580 -860 580 -700 {
-lab=A}
-N 580 -700 770 -700 {
 lab=A}
 N 500 -780 580 -780 {
 lab=A}
@@ -81,6 +77,8 @@ N 790 -990 790 -950 {
 lab=VCC}
 N 800 -450 800 -420 {
 lab=GND}
+N 580 -700 760 -700 {
+lab=A}
 C {devices/ipin.sym} 410 -810 0 0 {name=p8 lab=A}
 C {devices/opin.sym} 380 -710 0 0 {name=p9 lab=Y}
 C {devices/ipin.sym} 410 -760 0 0 {name=p10 lab=B}
@@ -175,3 +173,4 @@ C {devices/iopin.sym} 370 -670 0 0 {name=p3 lab=VCC}
 C {devices/iopin.sym} 370 -630 0 0 {name=p4 lab=GND}
 C {devices/lab_pin.sym} 790 -990 0 0 {name=p6 sig_type=std_logic lab=VCC}
 C {devices/lab_pin.sym} 800 -420 0 1 {name=p7 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} 800 -700 0 1 {name=p2 sig_type=std_logic lab=GND}
