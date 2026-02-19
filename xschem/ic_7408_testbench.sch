@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 550 -910 1170 -560 {flags=graph
 y1=0
@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1.0028657e-06
-x2=2.5157294e-06
+x1=9.27223e-07
+x2=2.440087e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -27,7 +27,7 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color="5 4 12"}
+color="5 8 12"}
 B 2 550 -560 1170 -210 {flags=graph
 y1=0
 y2=2
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1.0028657e-06
-x2=2.5157294e-06
+x1=9.27223e-07
+x2=2.440087e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,8 +49,9 @@ unitx=1
 logx=0
 logy=0
 
-color=20
-node=i(vmeas)}
+color="5 12"
+node="i(vmeas)
+i(vmeas1)"}
 N 120 -290 120 -270 {
 lab=VCC}
 N 120 -210 120 -190 {
@@ -71,14 +72,6 @@ N -350 -200 -350 -180 {
 lab=GND}
 N -260 -290 -180 -290 {
 lab=out_1y_before}
-N -410 100 -310 100 {
-lab=1Y_out}
-N -340 100 -340 130 {
-lab=1Y_out}
-N -340 190 -340 210 {
-lab=GND}
-N -250 100 -170 100 {
-lab=out_1y_before1}
 N 120 -630 120 -610 {
 lab=GND}
 N 120 -710 120 -690 {
@@ -103,6 +96,14 @@ N 330 -480 330 -460 {
 lab=GND}
 N 330 -560 330 -540 {
 lab=4B}
+N -440 30 -340 30 {
+lab=1Y_parax}
+N -370 30 -370 60 {
+lab=1Y_parax}
+N -370 120 -370 140 {
+lab=GND}
+N -280 30 -200 30 {
+lab=out_1y_before1}
 C {devices/vsource.sym} 120 -240 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/vsource.sym} 120 -380 0 0 {name=V2 value="pulse(0 1.8 1u 1n 1n 2u 4u)" savecurrent=false}
 C {devices/vsource.sym} 120 -510 0 0 {name=V3 value="pulse(0 1.8 1u 1n 1n 2u 4u)" savecurrent=false}
@@ -182,39 +183,6 @@ write 7408IC_final_testbench.raw
 C {devices/lab_pin.sym} -180 -230 0 0 {name=p17 sig_type=std_logic lab=2Y}
 C {AND_IC_TopLevel.sym} -30 -270 0 0 {name=x1}
 C {devices/ammeter.sym} 10 -330 1 1 {name=Vmeas savecurrent=true}
-C {devices/lab_pin.sym} -170 60 0 0 {name=p31 sig_type=std_logic lab=1A}
-C {devices/lab_pin.sym} -170 80 0 0 {name=p32 sig_type=std_logic lab=1B}
-C {devices/lab_pin.sym} -410 100 0 0 {name=p33 sig_type=std_logic lab=1Y_out}
-C {devices/lab_pin.sym} -10 180 0 1 {name=p34 sig_type=std_logic lab=3Y_out}
-C {devices/lab_pin.sym} -10 120 0 1 {name=p35 sig_type=std_logic lab=4Y_out}
-C {devices/lab_pin.sym} -170 120 2 1 {name=p36 sig_type=std_logic lab=2A}
-C {devices/lab_pin.sym} -170 140 2 1 {name=p37 sig_type=std_logic lab=2B}
-C {devices/lab_pin.sym} -10 140 0 1 {name=p38 sig_type=std_logic lab=3A}
-C {devices/lab_pin.sym} -10 160 0 1 {name=p47 sig_type=std_logic lab=3B}
-C {devices/lab_pin.sym} -10 80 2 0 {name=p48 sig_type=std_logic lab=4A}
-C {devices/lab_pin.sym} -10 100 2 0 {name=p49 sig_type=std_logic lab=4B}
-C {devices/gnd.sym} -170 180 1 0 {name=l13 lab=GND}
-C {devices/lab_wire.sym} 50 60 2 0 {name=p50 sig_type=std_logic lab=VCC
-}
-C {devices/res.sym} -280 100 1 0 {name=R3
-value=1k
-footprint=1206
-device=resistor
-m=1}
-C {devices/gnd.sym} -340 210 0 0 {name=l14 lab=GND}
-C {devices/lab_wire.sym} -230 100 1 0 {name=p51 sig_type=std_logic lab=out_1y_before1}
-C {devices/capa.sym} -340 160 0 0 {name=C3
-m=1
-value=10p
-footprint=1206
-device="ceramic capacitor"}
-C {devices/lab_pin.sym} -170 160 0 0 {name=p52 sig_type=std_logic lab=2Y_out}
-C {AND_IC_TopLevel.sym} -20 120 0 0 {name=x2
-schematic=AND_IC_TopLevel_parax.sim
-spice_sym_def="tcleval(.include [file normalize ../mag/AND_IC_TopLevel.sim.spice])"
-tclcommand="textwindow [file normalize ../mag/AND_IC_TopLevel.sim.spice]"
-}
-C {devices/ammeter.sym} 20 60 1 1 {name=Vmeas1 savecurrent=true}
 C {devices/vsource.sym} 120 -660 0 0 {name=V4 value=1.8 savecurrent=false}
 C {devices/vsource.sym} 120 -790 0 0 {name=V5 value=1.8 savecurrent=false}
 C {devices/lab_pin.sym} 120 -710 0 0 {name=p21 sig_type=std_logic lab=2A}
@@ -233,3 +201,38 @@ C {devices/lab_pin.sym} 330 -430 0 0 {name=p44 sig_type=std_logic lab=4A}
 C {devices/lab_pin.sym} 330 -560 0 0 {name=p45 sig_type=std_logic lab=4B}
 C {devices/gnd.sym} 330 -330 0 0 {name=l9 lab=GND}
 C {devices/gnd.sym} 330 -460 0 0 {name=l10 lab=GND}
+C {devices/lab_pin.sym} -200 -10 0 0 {name=p31 sig_type=std_logic lab=1A}
+C {devices/lab_pin.sym} -200 10 0 0 {name=p32 sig_type=std_logic lab=1B}
+C {devices/lab_pin.sym} -440 30 0 0 {name=p33 sig_type=std_logic lab=1Y_parax}
+C {devices/lab_pin.sym} -40 110 0 1 {name=p34 sig_type=std_logic lab=3Y_out}
+C {devices/lab_pin.sym} -40 50 0 1 {name=p35 sig_type=std_logic lab=4Y_out}
+C {devices/lab_pin.sym} -200 50 2 1 {name=p36 sig_type=std_logic lab=2A}
+C {devices/lab_pin.sym} -200 70 2 1 {name=p37 sig_type=std_logic lab=2B}
+C {devices/lab_pin.sym} -40 70 0 1 {name=p38 sig_type=std_logic lab=3A}
+C {devices/lab_pin.sym} -40 90 0 1 {name=p46 sig_type=std_logic lab=3B}
+C {devices/lab_pin.sym} -40 10 2 0 {name=p47 sig_type=std_logic lab=4A}
+C {devices/lab_pin.sym} -40 30 2 0 {name=p48 sig_type=std_logic lab=4B}
+C {devices/gnd.sym} -200 110 1 0 {name=l12 lab=GND}
+C {devices/lab_wire.sym} 20 -10 2 0 {name=p49 sig_type=std_logic lab=VCC
+}
+C {devices/res.sym} -310 30 1 0 {name=R2
+value=1k
+footprint=1206
+device=resistor
+m=1}
+C {devices/gnd.sym} -370 140 0 0 {name=l13 lab=GND}
+C {devices/lab_wire.sym} -260 30 1 0 {name=p50 sig_type=std_logic lab=out_1y_before1}
+C {devices/capa.sym} -370 90 0 0 {name=C2
+m=1
+value=10p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/lab_pin.sym} -200 90 0 0 {name=p51 sig_type=std_logic lab=2Y_out}
+C {AND_IC_TopLevel.sym} -50 50 0 0 {name=x2
+schematic=AND_IC_TopLevel_parax.sim
+
+spice_sym_def="tcleval(.include [file normalize ../mag/AND_IC_TopLevel.sim.spice])"
+
+tclcommand="textwindow [file normalize ../mag/AND_IC_TopLevel.sim.spice]"
+}
+C {devices/ammeter.sym} -10 -10 1 1 {name=Vmeas1 savecurrent=true}
