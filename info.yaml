@@ -1,10 +1,10 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
-  language:     "Analog" # other examples include Verilog, Amaranth, VHDL, etc
+  title:        "AND_IC_TopLevel"      # Project title
+  author:       "Isaac Appiah"      # Your name
+  discord:      "iappiah-zed"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "A quad 2-input AND gate (7408 compatible)."      # One line description of what your project does
+  language:     "Digital" # other examples include Verilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
@@ -15,7 +15,7 @@ project:
   uses_3v3: false       # Set to true if your project uses 3.3V (VAPWR) in addition to 1.8V (VDPWR)
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_Isaac_AND_IC_TopLevel"
 
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
@@ -25,42 +25,42 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "1A" # AND Gate 1 input 1
+  ui[1]: "1B" # AND Gate 1 input 2
+  ui[2]: "2A" # AND Gate 2 input 1
+  ui[3]: "2B" # AND Gate 2 input 2
+  ui[4]: "3A" # AND Gate 3 input 1
+  ui[5]: "3B" # AND Gate 3 input 2
+  ui[6]: "4A" # AND Gate 4 input 1
+  ui[7]: "4B" # AND Gate 4 input 2
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "1Y" # AND Gate 1 output
+  uo[1]: "2Y" # AND Gate 2 output
+  uo[2]: "3Y" # AND Gate 3 output
+  uo[3]: "4Y" # AND Gate 4 output
+  uo[4]: "" # Not Connected
+  uo[5]: "" # Not Connected
+  uo[6]: "" # Not Connected
+  uo[7]: "" # Not Connected
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "" # Not Connected
+  uio[1]: "" # Not Connected
+  uio[2]: "" # Not Connected
+  uio[3]: "" # Not Connected
+  uio[4]: "" # Not Connected
+  uio[5]: "" # Not Connected
+  uio[6]: "" # Not Connected
+  uio[7]: "" # Not Connected
 
   # Analog pins - make sure to also set "analog_pins" above, else the pins won't be connected
-  ua[0]: ""
-  ua[1]: ""
-  ua[2]: ""
-  ua[3]: ""
-  ua[4]: ""
-  ua[5]: ""
+  ua[0]: "" # Unused
+  ua[1]: "" # Unused
+  ua[2]: "" # Unused
+  ua[3]: "" # Unused
+  ua[4]: "" # Unused
+  ua[5]: "" # Unused
 
 # Do not change!
 yaml_version: 6
